@@ -8,6 +8,8 @@ from aiogram.fsm.context import FSMContext
 
 router_users = Router()
 
+image_id = "AgACAgIAAxkBAAOVaHQjB5ZbiMXKiwqctevgbvlF-QQAAgv3MRs8dKBLNvr_enc5b90BAAMCAAN5AAM2BA"
+
 # Remove the decorator since we register this function manually in register_routers.py
 async def on_start(message: Message, bot: Bot, state: FSMContext, db=None):
     """
@@ -38,6 +40,32 @@ async def on_start(message: Message, bot: Bot, state: FSMContext, db=None):
     )
     
     # Send welcome message with link button
-    await message.answer(welcome_text, reply_markup=keyboard)
+    await bot.send_photo(message.chat.id, image_id, caption=welcome_text, reply_markup=keyboard)
+
+
+# async def get_image_info(message: Message, bot: Bot, state: FSMContext, db=None):
+#     """
+#     Get image info
+#     :param db: Database instance
+#     :param state: FSM context
+#     :param message: Message instance
+#     :param bot: Bot instance
+#     :return: None
+#     """
+    
+#     image_id = message.photo[-1].file_id
+#     image_info = await bot.get_file(image_id)
+#     image_url = image_info.file_path
+#     image_url = f"https://api.telegram.org/file/bot{bot.token}/{image_url}"
+#     image_info = await bot.get_file(image_id)
+#     image_url = image_info.file_path
+#     image_url = f"https://api.telegram.org/file/bot{bot.token}/{image_url}"
+    
+#     await message.answer(image_id)
+
+
+
+
+
 
 

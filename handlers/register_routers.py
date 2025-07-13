@@ -18,7 +18,10 @@ async def register_users(db):
         partial(on_start, db=db),
         Command("start")
     )
-
+    # router_users.message.register(
+    #     partial(get_image_info, db=db),
+    #     F.photo
+    # )
 
 async def register_admin_handlers(db):
     """Register all admin handlers with database access"""
