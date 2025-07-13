@@ -3,7 +3,7 @@ version: '3.8'
 services:
   simple-bot:
     build: .
-    restart: unless-stopped
+    restart: always
     container_name: simple-bot
     volumes:
       - ./data:/app/data
